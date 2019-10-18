@@ -26,7 +26,22 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragment_container"/>
+            android:id="@+id/fragment_container">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="40dp"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        </FrameLayout>
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -38,17 +53,6 @@
         android:background="@color/colorPrimaryDark"
         app:menu="@menu/drawer" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:clipToPadding="false"
-        android:paddingTop="40dp"
-        android:paddingBottom="20dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-    </androidx.recyclerview.widget.RecyclerView>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

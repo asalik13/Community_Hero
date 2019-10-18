@@ -5,7 +5,7 @@ import com.parse.ParseInstallation;
 
 import android.app.Application;
 
-
+//DON'T MAKE CHANGES!
 public class ParseServer extends Application {
     @Override
     public void onCreate() {

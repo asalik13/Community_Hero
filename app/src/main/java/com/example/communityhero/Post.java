@@ -6,6 +6,7 @@ public class Post {
     private String desc;
     private String contributors;
 
+    // Class to contain all the post related information
     public Post(int id, String title, String desc, String contributors) {
         this.id = id;
         this.title = title;

@@ -33,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
         repassField = findViewById(R.id.repass);
     }
 
+    //Performs the signup function
     public void signup(View view) {
         if(nameField.getText().toString().length() > 0  && passField.getText().toString().length() > 0 && emailField.getText().toString().length() > 0 && passField.getText().toString().equals(repassField.getText().toString())) {
             ParseUser user = new ParseUser();
@@ -60,6 +61,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
             });
         }else {
+            //If all fields aren't filled correctly
             Toast toast = Toast.makeText(this, "Please fill in all the fields correctly", Toast.LENGTH_SHORT);
             View toastView = toast.getView();
             toastView.setBackgroundColor(Color.RED);

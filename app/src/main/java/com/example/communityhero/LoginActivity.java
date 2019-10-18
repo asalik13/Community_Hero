@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         nameField = findViewById(R.id.name);
         passField = findViewById(R.id.pass);
 
+        //If already logged in, go directly to home activity.
         ParseUser curr = ParseUser.getCurrentUser();
         if(curr != null) {
             Intent intent = new Intent(this, HomeActivity.class);
@@ -31,11 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    // Takes you to signup page
     public void noAcc(View view) {
         Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
     }
 
+    //Performs the login function
     public void login(View view) {
         ParseUser.logInInBackground(nameField.getText().toString(), passField.getText().toString(), new LogInCallback() {
             @Override

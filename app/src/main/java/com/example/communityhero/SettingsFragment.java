@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.parse.ParseUser;
 
+//Fragment for settings
 public class SettingsFragment extends Fragment {
     @Nullable
     @Override

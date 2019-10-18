@@ -34,6 +34,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         return postViewHolder;
     }
 
+    //Assigns post class information to the cardview
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         Post post = postList.get(position);
@@ -60,9 +61,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             textViewDesc = itemView.findViewById(R.id.textViewShortDesc);
             textViewContributors = itemView.findViewById(R.id.textViewContributors);
 
+            //On selection of a post
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    // Pop up asking you if you want to join
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                     builder.setTitle("DO YOU WANNA JOIN?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
