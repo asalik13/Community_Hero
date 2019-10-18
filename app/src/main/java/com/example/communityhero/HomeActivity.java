@@ -2,6 +2,7 @@ package com.example.communityhero;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
@@ -136,5 +138,10 @@ public class HomeActivity extends AppCompatActivity {
     // To bookmark a post
     public void save(View view) {
         Toast.makeText(this, "SAVED", Toast.LENGTH_SHORT).show();
+    }
+
+    // To create a post
+    public void add(View view) {
+        Log.i("info", "added");
     }
 }

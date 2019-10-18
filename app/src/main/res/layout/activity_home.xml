@@ -10,10 +10,24 @@
     tools:openDrawer="start"
     android:id="@+id/drawer_layout">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fab_plus"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="40dp"
+            android:onClick="add"
+            app:backgroundTint="@color/colorAccent"
+            app:elevation="12dp"
+            app:fabSize="normal" />
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -28,21 +42,19 @@
             android:layout_height="match_parent"
             android:id="@+id/fragment_container">
 
-        <androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:clipToPadding="false"
-            android:paddingTop="40dp"
-            android:paddingBottom="20dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
         </androidx.recyclerview.widget.RecyclerView>
 
         </FrameLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation"
@@ -52,7 +64,5 @@
         app:headerLayout="@layout/nav_header"
         android:background="@color/colorPrimaryDark"
         app:menu="@menu/drawer" />
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

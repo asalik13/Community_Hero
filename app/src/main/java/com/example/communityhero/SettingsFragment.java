@@ -19,15 +19,16 @@ public class SettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_settings, container, false);
-    }
-
-    public void logout(View view) {
-        switch(view.getId()) {
-            case R.id.logout:
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        Button logoutBtn = view.findViewById(R.id.logout);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 ParseUser.getCurrentUser().logOut();
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
-        }
+            }
+        });
+        return view;
     }
 }
