@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Community Hero</string>
+
+    <string name="server_url">https://parseapi.back4app.com/</string>
+    <string name="app_id">VxRSAEtPKtQU9ncsf6dxTHeL3a0VIrvLkDbMQi6f</string>
+    <string name="client_key">bv8zut0lRSQeDk42TmWaVKXFXzSElPAPrSjWotII</string>
+
+    <string name="navigation_drawer_open">"Open navigation drawer"</string>
+    <string name="navigation_drawer_close">"Close navigation drawer"</string>
+</resources>
