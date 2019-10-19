@@ -54,12 +54,24 @@
                 android:textColor="#000"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse" />
 
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewShortDesc"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorPrimary"
+                android:paddingRight="15dp"
+                android:text="Date: "
+                android:textColor="#000"/>
+
             <Button
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_toRightOf="@+id/textViewContributors"
                 android:layout_marginTop="95dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="180dp"
                 android:onClick="save"
                 android:background="@drawable/saved"/>
 

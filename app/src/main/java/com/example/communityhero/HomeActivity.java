@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroupOverlay;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -26,7 +27,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
 import com.parse.ParseUser;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.text.SimpleDateFormat;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -89,47 +93,55 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4"));
+        String pattern = "dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
+        String date = simpleDateFormat.format(new Date());
 
         postList.add(
                 new Post(
                         1,
                         "Clearing neighborhood garbabge",
                         "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4"));
+                        "Contributors: 4",
+                        date));
 
         postList.add(
                 new Post(
                         1,
                         "Clearing neighborhood garbabge",
                         "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4"));
+                        "Contributors: 4",
+                        date));
+        postList.add(
+                new Post(
+                        1,
+                        "Clearing neighborhood garbabge",
+                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
+                        "Contributors: 4",
+                        date));
+        postList.add(
+                new Post(
+                        1,
+                        "Clearing neighborhood garbabge",
+                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
+                        "Contributors: 4",
+                        date));
 
         postList.add(
                 new Post(
                         1,
                         "Clearing neighborhood garbabge",
                         "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4"));
+                        "Contributors: 4",
+                        date));
 
         postList.add(
                 new Post(
                         1,
                         "Clearing neighborhood garbabge",
                         "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4"));
-
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4"));
+                        "Contributors: 4",
+                        date));
 
         adapter = new PostAdapter(this, postList);
         recyclerView.setAdapter(adapter);
@@ -176,7 +188,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void chooseLocation(View view) {
-        // Fill this
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }

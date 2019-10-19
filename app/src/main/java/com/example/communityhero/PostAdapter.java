@@ -42,6 +42,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.textViewTitle.setText(post.getTitle());
         holder.textViewDesc.setText(post.getDesc());
         holder.textViewContributors.setText(String.valueOf(post.getContributors()));
+        holder.textViewDate.setText(String.valueOf(post.getDate()));
 
     }
 
@@ -52,7 +53,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     class PostViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewTitle, textViewDesc, textViewContributors;
+        TextView textViewTitle, textViewDesc, textViewContributors, textViewDate;
 
         public PostViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -60,6 +61,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewDesc = itemView.findViewById(R.id.textViewShortDesc);
             textViewContributors = itemView.findViewById(R.id.textViewContributors);
+            textViewDate = itemView.findViewById(R.id.textViewDate);
 
             //On selection of a post
             itemView.setOnClickListener(new View.OnClickListener() {
