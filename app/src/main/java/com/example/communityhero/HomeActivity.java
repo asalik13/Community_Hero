@@ -1,10 +1,18 @@
 package com.example.communityhero;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroupOverlay;
+import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -26,11 +34,16 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     PostAdapter adapter;
     List<Post> postList;
+    CreatePostFragment createPostFragment;
+    ViewGroup root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        createPostFragment = new CreatePostFragment();
+        root = (ViewGroup) getWindow().getDecorView().getRootView();
 
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -55,9 +68,6 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.settings:
-//                        ParseUser.getCurrentUser().logOut();
-//                        intent = new Intent(getApplicationContext(), LoginActivity.class);
-//                        startActivity(intent);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
                         break;
                 }
@@ -142,6 +152,31 @@ public class HomeActivity extends AppCompatActivity {
 
     // To create a post
     public void add(View view) {
-        Log.i("info", "added");
+        applyDim(root, 0.1f);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, createPostFragment).commit();
     }
+
+    public void create(View view) {
+        clearDim(root);
+        getSupportFragmentManager().beginTransaction().remove(createPostFragment).commit();
+    }
+
+    public static void applyDim(@NonNull ViewGroup parent, float dimAmount){
+        Drawable dim = new ColorDrawable(Color.BLACK);
+        dim.setBounds(0, 0, parent.getWidth(), parent.getHeight());
+        dim.setAlpha((int) (255 * dimAmount));
+
+        ViewGroupOverlay overlay = parent.getOverlay();
+        overlay.add(dim);
+    }
+
+    public static void clearDim(@NonNull ViewGroup parent) {
+        ViewGroupOverlay overlay = parent.getOverlay();
+        overlay.clear();
+    }
+
+    public void chooseLocation(View view) {
+        // Fill this
+    }
+
 }
