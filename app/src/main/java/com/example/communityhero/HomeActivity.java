@@ -49,6 +49,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        fab = findViewById(R.id.fab);
+        recyclerView = findViewById(R.id.rv);
+
         createPostFragment = new CreatePostFragment();
         root = (ViewGroup) getWindow().getDecorView().getRootView();
 
@@ -65,6 +68,8 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                fab.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.GONE);
                 switch (menuItem.getItemId()) {
                     case R.id.home:
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -76,6 +81,20 @@ public class HomeActivity extends AppCompatActivity {
 
                     case R.id.settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+                        break;
+
+                    case R.id.saved:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SavedFragment()).commit();
+                        break;
+
+
+                    case R.id.groups:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GroupsFragment()).commit();
+                        break;
+
+
+                    case R.id.portfolio:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PortfolioFragment()).commit();
                         break;
                 }
 
@@ -92,7 +111,6 @@ public class HomeActivity extends AppCompatActivity {
 
         //Recycler view to contain the cards (posts)
         postList = new ArrayList<>();
-        recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -103,7 +121,7 @@ public class HomeActivity extends AppCompatActivity {
         postList.add(
                 new Post(
                         1,
-                        "Clearing neighborhood garbabge",
+                        "Curing cancer",
                         "There's a lot of garbage left unattended these days. So I thought we could clean it up",
                         "Contributors: 4",
                         date));
@@ -168,7 +186,6 @@ public class HomeActivity extends AppCompatActivity {
     // To create a post
     public void add(View view) {
         applyDim(root, 0.1f);
-        fab = findViewById(R.id.fab);
         fab.hide();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, createPostFragment).commit();
     }

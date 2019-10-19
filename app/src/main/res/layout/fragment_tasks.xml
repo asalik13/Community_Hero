@@ -2,8 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/leaves_bg">
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List of all your tasks"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
+        android:textColor="#000"
+        android:layout_centerHorizontal="true"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="130dp"
+        android:id="@+id/listView"/>
 
 </RelativeLayout>

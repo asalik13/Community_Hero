@@ -6,8 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.TextView;
-
+import android.widget.Filterable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,12 +18,15 @@ import java.util.List;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
 
     private Context context;
-    private List<Post> postList;
+    List<Post> postList, filterList;
+    Filter filter;
+    PostAdapter adapter;
 
 
     public PostAdapter(Context context, List<Post> postList) {
         this.context = context;
         this.postList = postList;
+        this.filterList = postList;
     }
 
     @NonNull
