@@ -89,8 +89,10 @@ public class HomeActivity extends AppCompatActivity {
 
 
                     case R.id.groups:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GroupsFragment()).commit();
-                        break;
+                        intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GroupsFragment()).commit();
+                        //break;
 
 
                     case R.id.portfolio:
