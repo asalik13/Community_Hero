@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="390dp"
-    android:layout_marginLeft="20dp"
+    android:layout_width="380dp"
+    android:layout_height="330dp"
+    android:layout_marginLeft="5dp"
     android:layout_marginTop="180dp"
     android:background="@drawable/layout_bg">
 
@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/edittext"
         android:hint="Title..."
         android:padding="13dp"
@@ -25,7 +25,7 @@
         android:layout_height="150dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/edittext"
         android:hint="Description..."
         android:gravity="start"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Pick location of the event.."
         android:textSize="18sp"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="230dp"
         android:layout_marginLeft="45dp"/>
 
     <Button
@@ -45,7 +45,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="215dp"
         android:layout_marginLeft="255dp"
         android:background="@drawable/location_picker"/>
 
@@ -53,7 +53,7 @@
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="275dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button2"
         android:elevation="50dp"

@@ -11,14 +11,14 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        card_view:cardCornerRadius="15dp"
+        card_view:cardCornerRadius="8dp"
         card_view:cardElevation="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
-            android:background="@color/colorPrimary">
+            android:background="#FFF">
 
             <TextView
                 android:id="@+id/textViewTitle"
@@ -48,7 +48,6 @@
                 android:layout_below="@id/textViewShortDesc"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
-                android:background="@color/colorPrimary"
                 android:paddingRight="15dp"
                 android:text="Contributors: 24"
                 android:textColor="#000"
@@ -61,7 +60,6 @@
                 android:layout_below="@id/textViewShortDesc"
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="15dp"
-                android:background="@color/colorPrimary"
                 android:paddingRight="15dp"
                 android:text="Date: "
                 android:textColor="#000"/>

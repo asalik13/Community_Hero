@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/wave_bg"
     tools:context=".LoginActivity">
 
     <RelativeLayout
@@ -14,7 +14,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/colorPrimary"
             android:fontFamily="@font/lemonada_light"
             android:gravity="center"
             android:text="LOGIN"

@@ -24,6 +24,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.parse.ParseUser;
 import java.util.ArrayList;
@@ -40,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     List<Post> postList;
     CreatePostFragment createPostFragment;
     ViewGroup root;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,12 +168,15 @@ public class HomeActivity extends AppCompatActivity {
     // To create a post
     public void add(View view) {
         applyDim(root, 0.1f);
+        fab = findViewById(R.id.fab);
+        fab.hide();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, createPostFragment).commit();
     }
 
     public void create(View view) {
         clearDim(root);
         getSupportFragmentManager().beginTransaction().remove(createPostFragment).commit();
+        fab.show();
     }
 
     public static void applyDim(@NonNull ViewGroup parent, float dimAmount){

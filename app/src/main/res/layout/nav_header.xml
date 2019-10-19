@@ -6,7 +6,7 @@
     android:layout_height="176dp"
     android:gravity="bottom"
     android:padding="16dp"
-    android:background="@color/colorPrimary">
+    android:background="#DF8A90">
 
     <ImageView
         android:id="@+id/imageView"
