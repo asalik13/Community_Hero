@@ -1,55 +1,42 @@
-# Community_Hero ![](https://cdn.worldvectorlogo.com/logos/hero.svg  = 30x40)
-A community event manager app where people can collaborate on making social events for the greater good successful. 
-Users can participate in the events organized by other users or the events haSndpicked by the admins based on their proximity. Feel that there is not enough social good in this world? Make your own events and have other users participate in them. 
-The app features user portfolio which records all the events in which the user participated and generates a 'Social Welfare' score based on their participation.
+ <a href="https://aimeos.org/">
+    <img src="https://cdn.worldvectorlogo.com/logos/hero.svg" width="120" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
+</a>
 
-# Video Demo Here
-
-[Download APK Here](https://www.petmd.com/sites/default/files/small-kitten-walking-towards_127900829_0.jpg)
-
-
-## Status
-
+Community Hero
+======================
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-grayscale/master/LICENSE)
 [![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-grayscale.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-grayscale)
 [![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale)
 [![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale?type=dev)
 
+:star: Star us on GitHub — it helps!
+
+[Community Hero](https://github.com/Smy24/Community_Hero) is a community event manager app where people can collaborate on making social events for the greater good successful. 
+Users can participate in the events organized by other users or the events haSndpicked by the admins based on their proximity. Feel that there is not enough social good in this world? Make your own events and have other users participate in them. 
+The app features user portfolio which records all the events in which the user participated and generates a 'Social Welfare' score based on their participation.
+
+[![Aimeos TYPO3 demo](https://aimeos.org/fileadmin/user_upload/typo3-demo.jpg)](http://typo3.demo.aimeos.org/)
+
+## Table of Contents
+- [Installation](#installation)
+- [App Setup](#app-setup)
+- [Usage](#usage)
+- [Features and Issues](#features-and-issues)
+- [Developers (NASTi)](#developers-nasti)
+- [License](#license)
+
+## Installation
+[Download APK Here](https://kittenrescue.org/wp-content/uploads/2017/03/KittenRescue_KittenCareHandbook.jpg)
 
 
-# APK Installation
-URL: 
-
-# Installation Instructions
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-1. Download Android Studio (comes with Gradle)
-2. Download x86_64 Virtual Device through Android Virtual Device Manager (AVD Manager)
-3. Start contributing
-
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https:://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+## App Setup
+1. Clone this repository
+2. Download Android Studio (comes with Gradle)
+3. Download x86_64 Virtual Device through Android Virtual Device Manager (AVD Manager)
+4. Add your API keys in res/values/strings.xml
+    1. Add a Stitch app ID [Here](https://docs.mongodb.com/stitch/procedures/create-stitch-app/)
+    2. Add a Back4App Parse API Key [Here](https://www.back4app.com/docs/parse-documentation)
+    3. Add a Google Maps API Key [Here](https://developers.google.com/maps/documentation/android-sdk/intro)
 
 
 
@@ -63,30 +50,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- ROADMAP -->
-## Roadmap
+## Features and Issues
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
-<!-- LICENSE -->
-## License
-Distributed under the MIT License. See `LICENSE` for more information.
-
+See the [open issues](https://github.com/Smy24/Community_Hero/issues) for a list of proposed features (and known issues).
 
 
 <!-- CONTACT -->
@@ -97,8 +63,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Timothy
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* Daniel Zhang - came to us with a real world problem
-* 
+<!-- LICENSE -->
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
