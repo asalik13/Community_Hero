@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     RecyclerView recyclerView;
     PostAdapter adapter;
-    List<Post> postList;
+
     CreatePostFragment createPostFragment;
     ViewGroup root;
     FloatingActionButton fab;
@@ -52,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.rv);
 
+        List<Post> postList;
         createPostFragment = new CreatePostFragment();
         root = (ViewGroup) getWindow().getDecorView().getRootView();
 

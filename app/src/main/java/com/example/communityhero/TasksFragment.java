@@ -56,56 +56,9 @@ public class TasksFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
-
-        // Create the default Stitch Client
-        final StitchAppClient client =
-                Stitch.initializeDefaultAppClient("community-hero-ggexr");
-
-        // Create a Client for MongoDB Mobile (initializing MongoDB Mobile)
-        final MongoClient mobileClient =
-                client.getServiceClient(LocalMongoDbService.clientFactory);
-        // Point to the target collection and insert a document
-        MongoCollection<Document> localCollection =
-                mobileClient.getDatabase("my_db").getCollection("my_collection");
-        localCollection.drop();
-        mobileClient.getDatabase("my_db").createCollection("my_collection");
-
-        Document document = new Document("title", "MongoDB")
-                .append("id", 1)
-                .append("taskName", "Cure Cancer")
-                .append("likes", 100)
-                .append("url", "http://www.tutorialspoint.com/mongodb/")
-                .append("by", "tutorials point");
-        localCollection.insertOne(document);
-        Document taskOne = new Document("taskName", "Being batman");
-        Document taskTwo = new Document("taskName", "Being batman");
-        Document taskThree = new Document("taskName", "Being batman");
-        Document taskFour = new Document("taskName", "Being batman");
-        Document taskFive = new Document("taskName", "Being batman");
-        Document taskSix = new Document("taskName", "Being batman");
-        List<Document> taskList = new ArrayList<>();
-        taskList.add(taskOne);
-        taskList.add(taskTwo);
-        taskList.add(taskThree);
-        taskList.add(taskFour);
-        taskList.add(taskFive);
-        taskList.add(taskSix);
-        localCollection.insertMany(taskList);
-
-        FindIterable<Document> cursor = localCollection.find();
-        ArrayList<Document> results =
-                (ArrayList<Document>) cursor.into(new ArrayList<Document>());
-
-        ArrayList<String> arr = new ArrayList();
-        String mydude;
-        for (Document a: results) {
-            System.out.println("DUDE 1: " + a.toString());
-            mydude = a.getString("taskName");;
-            System.out.println("DUDE 2: " + mydude);
-            arr.add(mydude);
-
-        }
-
+        MongoJDBCDriver mongo = new MongoJDBCDriver();
+        mongo.insertCollection("taskCollection");
+        ArrayList<String> arr = mongo.findCollection("taskCollection", "taskName");
 
         arr.add("Being batman");
         arr.add("Being batman");
