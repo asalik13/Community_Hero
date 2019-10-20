@@ -2,7 +2,155 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/leaves_bg">
+    android:background="@drawable/gradient_bg">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:text="PROFILE"
+            android:fontFamily="@font/lemonada_light"
+            android:background="#eef2f3"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="160dp"
+            android:background="@drawable/profile_bg"
+            android:src="@drawable/pikachu"></ImageView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="250dp"
+            android:text="San My"
+            android:textSize="24sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Sanmy@gmail.com"
+            android:textSize="17sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="80sp"
+            android:layout_marginTop="10dp"
+            android:text="Contributions -"
+            android:textSize="20sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Worked 20hrs in a homeless shelter"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Total hours worked: 200hrs"
+            android:textSize="24sp"
+            android:textColor="#FFF"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share_black_24dp"
+            android:onClick="share"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="320dp"/>
+    </LinearLayout>
 
 </RelativeLayout>

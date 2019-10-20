@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:clipToPadding="false"
     android:focusableInTouchMode="true"
+    android:background="@drawable/leaves_bg"
     tools:context="com.example.scaledrone.chat.MainActivity">
 
     <ListView
@@ -19,7 +20,6 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
         android:orientation="horizontal">
 
         <EditText

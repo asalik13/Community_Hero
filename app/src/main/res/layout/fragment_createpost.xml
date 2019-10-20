@@ -2,11 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="380dp"
     android:layout_height="330dp"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="180dp"
-    android:background="@drawable/layout_bg"
-    tools:context=".CreatePostFragment">
+    android:background="@drawable/layout_bg">
 
 
     <EditText
@@ -15,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext"
         android:hint="Title..."
         android:padding="13dp"
