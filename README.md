@@ -15,7 +15,7 @@ Community Hero
 Users can participate in the events organized by other users or the events haSndpicked by the admins based on their proximity. Feel that there is not enough social good in this world? Make your own events and have other users participate in them. 
 The app features user portfolio which records all the events in which the user participated and generates a 'Social Welfare' score based on their participation.
 
-<img src="https://cdn.worldvectorlogo.com/logos/hero.svg" width="120" height="60" />
+<img src="https://github.com/Smy24/Community_Hero/blob/master/imgonline-com-ua-twotoone-VOXCZWDSAmhmpilZ.jpg" width="840" height="420" />
 
 ## Table of Contents
 - [Installation](#installation)
