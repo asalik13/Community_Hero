@@ -1,4 +1,4 @@
-# Community_Hero
+ # Community_Hero ![GitHub Logo](https://cdn.worldvectorlogo.com/logos/hero.svg)
 A community event manager app where people can collaborate on making social events for the greater good successful. 
 Users can participate in the events organized by other users or the events haSndpicked by the admins based on their proximity. Feel that there is not enough social good in this world? Make your own events and have other users participate in them. 
 The app features user portfolio which records all the events in which the user participated and generates a 'Social Welfare' score based on their participation.
@@ -7,6 +7,16 @@ The app features user portfolio which records all the events in which the user p
 [(https://www.petmd.com/sites/default/files/small-kitten-walking-towards_127900829_0.jpg)]
 
 PREVIEW link & image here please
+
+
+## Status
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-grayscale/master/LICENSE)
+[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-grayscale.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-grayscale)
+[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale)
+[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale?type=dev)
+
+
 
 # APK Installation
 URL: 
@@ -81,7 +91,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <!-- CONTACT -->
-## Developers
+## Developers (NASTi)
 * Naman
 * Ayush
 * Sandesh
