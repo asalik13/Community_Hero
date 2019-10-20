@@ -76,14 +76,15 @@ public class MongoJDBCDriver {
         MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
         Document a = convertPostToDocument(obj);
         localCollection.insertOne(a);
-
     }
     public Document convertPostToDocument(Post obj) {
         Document postsOne = new Document("id", obj.getId())
                 .append("title", obj.getTitle())
                 .append("description", obj.getDesc())
                 .append("contributors", obj.getContributors())
-                .append("date", obj.getDate());
+                .append("date", obj.getDate())
+                .append("lat", obj.getLatitude())
+                .append("lng", obj.getLongitude());
         return postsOne;
     }
     public void insertPostsCollection(String collectionName) {
@@ -91,16 +92,17 @@ public class MongoJDBCDriver {
         //If doesn't exist, simply returns false
         myDB.createCollection(collectionName);
 
-        String pattern = "dd MMMM yyyy";
+      /*String pattern = "dd MMMM yyyy";
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
         String date = simpleDateFormat.format(new Date());
 
         MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
-        Document postsOne = new Document("id", 1)
+       Document postsOne = new Document("id", 1)
                 .append("title", "WAY DIFFERENT NAME")
                 .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
                 .append("contributors", "Contributors: 4")
-                .append("date", date);
+                .append("date", date)
+                .append();
         Document postsTwo = new Document("id", 1)
                 .append("title", "Clearing neighborhood garbabge")
                 .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
@@ -128,7 +130,7 @@ public class MongoJDBCDriver {
         postsList.add(postsThree);
         postsList.add(postsFour);
         postsList.add(postsFive);
-        localCollection.insertMany(postsList);
+        localCollection.insertMany(postsList);*/
     }
     public void insertMessage(String collectionName, String message) {
         myDB.getCollection(collectionName).drop();
@@ -230,7 +232,9 @@ public class MongoJDBCDriver {
                     tempDoc.getString("title"),
                     tempDoc.getString("description"),
                     tempDoc.getString("contributors"),
-                    tempDoc.getString("date")
+                    tempDoc.getString("date"),
+                    tempDoc.getDouble("lat"),
+                    tempDoc.getDouble("lng")
             );
 
             res.add(tempPost);

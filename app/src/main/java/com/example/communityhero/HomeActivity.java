@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroupOverlay;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -150,17 +151,39 @@ public class HomeActivity extends AppCompatActivity {
 
     // To create a post
     public void add(View view) {
+        System.out.println("BLAH");
         applyDim(root, 0.1f);
         fab.hide();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, createPostFragment).commit();
     }
-
+/*
     public void create(View view) {
+        System.out.println("MINE");
         clearDim(root);
         getSupportFragmentManager().beginTransaction().remove(createPostFragment).commit();
+
+        EditText title = view.findViewById(R.id.textViewTitle);
+        EditText desc = view.findViewById(R.id.desc);
+
+        String pattern = "dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
+        String date = simpleDateFormat.format(new Date());
+
+
+        MongoJDBCDriver mongo = new MongoJDBCDriver();
+        Post myPost = new Post(
+                0,
+                title.getText().toString(),
+                desc.getText().toString(),
+                "Contributors: 2",
+                date,
+                70,
+                70
+        );
+        mongo.insertOnePostCollection("postCollection", myPost );
         fab.show();
     }
-
+*/
     public static void applyDim(@NonNull ViewGroup parent, float dimAmount){
         Drawable dim = new ColorDrawable(Color.BLACK);
         dim.setBounds(0, 0, parent.getWidth(), parent.getHeight());

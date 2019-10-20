@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -123,6 +124,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void choose(View view) {
-        Toast.makeText(this, startLatLng.toString(), Toast.LENGTH_SHORT).show();
+        Fragment fragment = new Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putDouble("lat", startLatLng.latitude);
+        bundle.putDouble("lng", startLatLng.longitude);
+        fragment.setArguments(bundle);
     }
 }

@@ -57,7 +57,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/button2"
         android:elevation="50dp"
-        android:onClick="create"
+        android:id="@+id/create"
         android:text="Create"
         android:textColor="#212121"></Button>
 

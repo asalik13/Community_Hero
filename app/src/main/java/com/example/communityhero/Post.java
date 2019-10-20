@@ -8,14 +8,18 @@ public class Post {
     private String desc;
     private String contributors;
     private String date;
+    private double latitude;
+    private double longitude;
 
     // Class to contain all the post related information
-    public Post(int id, String title, String desc, String contributors, String date) {
+    public Post(int id, String title, String desc, String contributors, String date, double lat, double lon) {
         this.id = id;
         this.title = title;
         this.desc = desc;
         this.contributors = contributors;
         this.date = date;
+        this.latitude = lat;
+        this.longitude = lon;
     }
 
     public int getId() {
@@ -36,5 +40,19 @@ public class Post {
 
     public String getDate() {return date;}
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 
 }
