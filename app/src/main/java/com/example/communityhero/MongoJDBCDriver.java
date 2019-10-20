@@ -88,14 +88,13 @@ public class MongoJDBCDriver {
         return postsOne;
     }
     public void insertPostsCollection(String collectionName) {
-        myDB.getCollection(collectionName).drop();
+
         //If doesn't exist, simply returns false
-        myDB.createCollection(collectionName);
         String pattern = "dd MMMM yyyy";
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
         String date = simpleDateFormat.format(new Date());
 
-        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+        /*MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
        Document postsOne = new Document("id", 1)
                 .append("title", "Neighborhood Cleanup")
                 .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
@@ -139,6 +138,8 @@ public class MongoJDBCDriver {
         postsList.add(postsFour);
         postsList.add(postsFive);
         localCollection.insertMany(postsList);
+        myDB.getCollection(collectionName).drop();
+        myDB.createCollection(collectionName);*/
     }
     public void insertCollectionSettings(String collectionName) {
         myDB.getCollection(collectionName).drop();
