@@ -19,7 +19,9 @@ import androidx.fragment.app.Fragment;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class CreatePostFragment extends Fragment {
@@ -63,6 +65,7 @@ public class CreatePostFragment extends Fragment {
 
                 Log.i("info", myPost.getTitle() + ", " + myPost.getDesc() + ", " + myPost.getLatitude() + ", " + myPost.getLongitude());
 
+                ((HomeActivity)getActivity()).createPost();
                 Intent i = new Intent(getActivity(), HomeActivity.class);
                 startActivity(i);
             }

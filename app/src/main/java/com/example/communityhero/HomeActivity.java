@@ -121,13 +121,6 @@ public class HomeActivity extends AppCompatActivity {
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
         String date = simpleDateFormat.format(new Date());
 
-
-        MongoJDBCDriver mongo = new MongoJDBCDriver();
-        mongo.insertPostsCollection("postCollection");
-        postList = mongo.findCollectionPost("postCollection");
-
-        adapter = new PostAdapter(this, postList);
-        recyclerView.setAdapter(adapter);
     }
 
     //Drawer on back press
@@ -151,7 +144,6 @@ public class HomeActivity extends AppCompatActivity {
 
     // To create a post
     public void add(View view) {
-        System.out.println("BLAH");
         applyDim(root, 0.1f);
         fab.hide();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, createPostFragment).commit();
@@ -202,6 +194,15 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MapsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    public void createPost() {
+        MongoJDBCDriver mongo = new MongoJDBCDriver();
+        mongo.insertPostsCollection("postCollection");
+        postList = mongo.findCollectionPost("postCollection");
+
+        adapter = new PostAdapter(this, postList);
+        recyclerView.setAdapter(adapter);
     }
 
 }

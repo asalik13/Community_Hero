@@ -16,7 +16,7 @@
         android:background="@drawable/button"
         android:elevation="50dp"
         android:onClick="choose"
-        android:text="LOGIN"
+        android:text="DONE"
         android:textColor="#212121"></Button>
 
 
