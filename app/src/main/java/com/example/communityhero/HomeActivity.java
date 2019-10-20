@@ -120,51 +120,10 @@ public class HomeActivity extends AppCompatActivity {
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
         String date = simpleDateFormat.format(new Date());
 
-        postList.add(
-                new Post(
-                        1,
-                        "Curing cancer",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4",
-                        date));
 
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4",
-                        date));
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4",
-                        date));
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4",
-                        date));
-
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4",
-                        date));
-
-        postList.add(
-                new Post(
-                        1,
-                        "Clearing neighborhood garbabge",
-                        "There's a lot of garbage left unattended these days. So I thought we could clean it up",
-                        "Contributors: 4",
-                        date));
+        MongoJDBCDriver mongo = new MongoJDBCDriver();
+        mongo.insertPostsCollection("postCollection");
+        postList = mongo.findCollectionPost("postCollection");
 
         adapter = new PostAdapter(this, postList);
         recyclerView.setAdapter(adapter);

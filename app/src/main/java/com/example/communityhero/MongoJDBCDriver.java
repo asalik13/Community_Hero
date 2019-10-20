@@ -44,9 +44,12 @@ import com.mongodb.stitch.android.services.mongodb.local.LocalMongoDbService;
 import org.bson.BsonString;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 public class MongoJDBCDriver {
     MongoClient mobileClient;
@@ -62,7 +65,80 @@ public class MongoJDBCDriver {
         // Database will always be my_db
         myDB = mobileClient.getDatabase("my_db");
     }
-    //public void insertCollection2(String )
+    public void insertPostsCollection(String collectionName) {
+        myDB.getCollection(collectionName).drop();
+        //If doesn't exist, simply returns false
+        myDB.createCollection(collectionName);
+
+        String pattern = "dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
+        String date = simpleDateFormat.format(new Date());
+
+        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+        Document postsOne = new Document("id", 1)
+                .append("title", "Curing Cancer")
+                .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
+                .append("contributors", "Contributors: 4")
+                .append("date", date);
+        Document postsTwo = new Document("id", 1)
+                .append("title", "Clearing neighborhood garbabge")
+                .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
+                .append("contributors", "Contributors: 4")
+                .append("date", date);
+        Document postsThree = new Document("id", 1)
+                .append("title", "Clearing neighborhood garbabge")
+                .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
+                .append("contributors", "Contributors: 4")
+                .append("date", date);
+        Document postsFour = new Document("id", 1)
+                .append("title", "Clearing neighborhood garbabge")
+                .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
+                .append("contributors", "Contributors: 4")
+                .append("date", date);
+        Document postsFive = new Document("id", 1)
+                .append("title", "Clearing neighborhood garbabge")
+                .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
+                .append("contributors", "Contributors: 4")
+                .append("date", date);
+
+        List<Document> postsList = new ArrayList<>();
+        postsList.add(postsOne);
+        postsList.add(postsTwo);
+        postsList.add(postsThree);
+        postsList.add(postsFour);
+        postsList.add(postsFive);
+        localCollection.insertMany(postsList);
+    }
+    public void insertMessage(String collectionName, String message) {
+        myDB.getCollection(collectionName).drop();
+        //If doesn't exist, simply returns false
+        myDB.createCollection(collectionName);
+        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+        Document document = new Document("sender", "MongoDB")
+                .append("message", message);
+        localCollection.insertOne(document);
+    }
+    public void insertCollectionGroups(String collectionName) {
+        myDB.getCollection(collectionName).drop();
+        //If doesn't exist, simply returns false
+        myDB.createCollection(collectionName);
+        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+
+        Document groupOne = new Document("groupName", "Group Harem");
+        Document groupTwo = new Document("groupName", "Group Harem");
+        Document groupThree = new Document("groupName", "Group Harem");
+        Document groupFour = new Document("groupName", "Group Harem");
+        Document groupFive = new Document("groupName", "Group Harem");
+        Document groupSix = new Document("groupName", "Group Harem");
+        List<Document> groupList = new ArrayList<>();
+        groupList.add(groupOne);
+        groupList.add(groupTwo);
+        groupList.add(groupThree);
+        groupList.add(groupFour);
+        groupList.add(groupFive);
+        groupList.add(groupSix);
+        localCollection.insertMany(groupList);
+    }
     public void insertCollection(String collectionName) {
         //MongoCollection<Document> localCollection =
 
@@ -78,7 +154,6 @@ public class MongoJDBCDriver {
                 .append("url", "http://www.tutorialspoint.com/mongodb/")
                 .append("by", "tutorials point");
         localCollection.insertOne(document);
-        System.out.println("INSERTED");
 
         Document taskOne = new Document("taskName", "Being batman2");
         Document taskTwo = new Document("taskName", "Being batman2");
@@ -94,7 +169,6 @@ public class MongoJDBCDriver {
         taskList.add(taskFive);
         taskList.add(taskSix);
         localCollection.insertMany(taskList);
-        System.out.println("ALL INSERTED");
     }
     public ArrayList<String> findCollection(String collectionName, String key)
     {
@@ -106,18 +180,39 @@ public class MongoJDBCDriver {
             //local collection does not exist
             return res;
         }
-        long a = localCollection.countDocuments();
         FindIterable<Document> cursor = localCollection.find();
         ArrayList<Document> documentList =
                 (ArrayList<Document>) cursor.into(new ArrayList<Document>());
-        System.out.println("FINDING: ");
-        System.out.println("LONG COUNT:  " + a);
-        System.out.println(documentList.get(0).getString(key));
-
 
         for (Document tempDoc: documentList) {
             res.add(tempDoc.getString(key));
             System.out.println("KEY: " + tempDoc.getString(key));
+        }
+        return res;
+    }
+    public List<Post> findCollectionPost(String collectionName) {
+        List<Post> res = new ArrayList<>();
+        System.out.println("FIND COLLECTION");
+        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+
+        if (localCollection == null) {
+            //local collection does not exist
+            return res;
+        }
+        FindIterable<Document> cursor = localCollection.find();
+        ArrayList<Document> documentList =
+                (ArrayList<Document>) cursor.into(new ArrayList<Document>());
+
+        for (Document tempDoc: documentList) {
+            Post tempPost = new Post(
+                    tempDoc.getInteger("id"),
+                    tempDoc.getString("title"),
+                    tempDoc.getString("description"),
+                    tempDoc.getString("contributors"),
+                    tempDoc.getString("date")
+            );
+
+            res.add(tempPost);
         }
         return res;
     }
