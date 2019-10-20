@@ -28,6 +28,7 @@ The app features user portfolio which records all the events in which the user p
 ## Installation
 [Download APK Here](https://kittenrescue.org/wp-content/uploads/2017/03/KittenRescue_KittenCareHandbook.jpg)
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/lnA8XQ_kRu0/0.jpg)](https://www.youtube.com/watch?v=lnA8XQ_kRu0)
 
 ## App Setup
 1. Clone this repository
