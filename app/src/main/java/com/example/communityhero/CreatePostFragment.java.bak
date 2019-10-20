@@ -52,8 +52,6 @@ public class CreatePostFragment extends Fragment {
 
 
                 MongoJDBCDriver mongo = new MongoJDBCDriver();
-                mongo.insertPostsCollection("postCollection");
-
                 Post myPost = new Post(
                         0,
                         title.getText().toString(),

@@ -3,7 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/leaves_bg">
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SETTINGS"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
+        android:textColor="#000"
+        android:layout_centerHorizontal="true"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="130dp"
+        android:id="@+id/listView"/>
     <Button
         android:layout_width="80dp"
         android:layout_height="50dp"

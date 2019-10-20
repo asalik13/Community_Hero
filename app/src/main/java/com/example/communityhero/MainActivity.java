@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MongoJDBCDriver mongo = new MongoJDBCDriver();
+        mongo.insertPostsCollection("postCollection");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

@@ -18,14 +18,23 @@ public class MessageAdapter extends BaseAdapter {
 
     List<Message> messages = new ArrayList<Message>();
     Context context;
+    MongoJDBCDriver mongo;
 
     public MessageAdapter(Context context) {
         this.context = context;
+        mongo = new MongoJDBCDriver();
+        List<Message> prevMsg = mongo.findCollectionMessage("messageCollection");
+        for (Message tempMsg: prevMsg) {
+            messages.add(tempMsg);
+            System.out.println("TEXT: " + tempMsg.getText());
+        }
+
     }
 
 
     public void add(Message message) {
         this.messages.add(message);
+        mongo.insertMessage("messageCollection", message);
         notifyDataSetChanged();
     }
 

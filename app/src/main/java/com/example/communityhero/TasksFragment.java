@@ -57,7 +57,7 @@ public class TasksFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
         MongoJDBCDriver mongo = new MongoJDBCDriver();
-        //mongo.insertCollection("taskCollection");
+        mongo.insertCollection("taskCollection");
         ArrayList<String> arr = mongo.findCollection("taskCollection", "taskName");
 
         ListView listView = view.findViewById(R.id.listView);

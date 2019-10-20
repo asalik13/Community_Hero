@@ -29,22 +29,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.parse.ParseUser;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.text.SimpleDateFormat;
-
-import cz.msebera.android.httpclient.Header;
-import okhttp3.OkHttpClient;
-
-import com.loopj.android.http.*;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -132,12 +121,6 @@ public class HomeActivity extends AppCompatActivity {
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
         String date = simpleDateFormat.format(new Date());
 
-        MongoJDBCDriver mongo = new MongoJDBCDriver();
-        mongo.insertPostsCollection("postCollection");
-        postList = mongo.findCollectionPost("postCollection");
-
-        adapter = new PostAdapter(this, postList);
-        recyclerView.setAdapter(adapter);
     }
 
     //Drawer on back press
@@ -165,34 +148,34 @@ public class HomeActivity extends AppCompatActivity {
         fab.hide();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, createPostFragment).commit();
     }
-    /*
-        public void create(View view) {
-            System.out.println("MINE");
-            clearDim(root);
-            getSupportFragmentManager().beginTransaction().remove(createPostFragment).commit();
+/*
+    public void create(View view) {
+        System.out.println("MINE");
+        clearDim(root);
+        getSupportFragmentManager().beginTransaction().remove(createPostFragment).commit();
 
-            EditText title = view.findViewById(R.id.textViewTitle);
-            EditText desc = view.findViewById(R.id.desc);
+        EditText title = view.findViewById(R.id.textViewTitle);
+        EditText desc = view.findViewById(R.id.desc);
 
-            String pattern = "dd MMMM yyyy";
-            SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
-            String date = simpleDateFormat.format(new Date());
+        String pattern = "dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
+        String date = simpleDateFormat.format(new Date());
 
 
-            MongoJDBCDriver mongo = new MongoJDBCDriver();
-            Post myPost = new Post(
-                    0,
-                    title.getText().toString(),
-                    desc.getText().toString(),
-                    "Contributors: 2",
-                    date,
-                    70,
-                    70
-            );
-            mongo.insertOnePostCollection("postCollection", myPost );
-            fab.show();
-        }
-    */
+        MongoJDBCDriver mongo = new MongoJDBCDriver();
+        Post myPost = new Post(
+                0,
+                title.getText().toString(),
+                desc.getText().toString(),
+                "Contributors: 2",
+                date,
+                70,
+                70
+        );
+        mongo.insertOnePostCollection("postCollection", myPost );
+        fab.show();
+    }
+*/
     public static void applyDim(@NonNull ViewGroup parent, float dimAmount){
         Drawable dim = new ColorDrawable(Color.BLACK);
         dim.setBounds(0, 0, parent.getWidth(), parent.getHeight());
@@ -220,48 +203,6 @@ public class HomeActivity extends AppCompatActivity {
 
         adapter = new PostAdapter(this, postList);
         recyclerView.setAdapter(adapter);
-/*
-        try {
-            checkIfBadText(postList.get(postList.size() - 1));
-        }
-        catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-*/
-    }
-
-    boolean checkIfBadText(Post myPost) throws IOException {
-        String url = "https://algorithmia-demo-v1m52.transposit.io/api/v1/execute/SentimentAnalysis?api_key=2sovskaes6cai6u3afmrr8kg1a";
-        OkHttpClient client = new OkHttpClient();
-        TranspositPostRequest example = new TranspositPostRequest();
-        RequestParams temp = new RequestParams();
-        JsonHttpResponseHandler responseHandler = new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                // If the response is JSONObject instead of expected JSONArray
-                Log.d("asd", "---------------- this is response : " + response);
-                try {
-                    JSONObject serverResp = new JSONObject(response.toString());
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                // Do something with the response
-                System.out.println("BLAH-SUCCESS");
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
-                // Pull out the first event on the public timeline
-                System.out.println("BLAH-SUCCESS");
-            }
-        };
-        TranspositPostRequest.post("https://algorithmia-demo-v1m52.transposit.io/api/v1/execute/SentimentAnalysis?api_key=2sovskaes6cai6u3afmrr8kg1a\"", temp , responseHandler);
-        //String response = example.post(url, json);
-        //System.out.println("RESPONSE: " + response);
-
-        return true;
-
     }
 
 }
