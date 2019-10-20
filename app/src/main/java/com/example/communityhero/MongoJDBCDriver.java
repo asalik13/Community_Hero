@@ -54,10 +54,11 @@ import java.util.Locale;
 public class MongoJDBCDriver {
     MongoClient mobileClient;
     MongoDatabase myDB;
+
+    // Create the default Stitch Client
+    static final StitchAppClient client =
+            Stitch.initializeDefaultAppClient("community-hero-ggexr");
     public MongoJDBCDriver() {
-        // Create the default Stitch Client
-        final StitchAppClient client =
-                Stitch.initializeDefaultAppClient("community-hero-ggexr");
 
         // Create a Client for MongoDB Mobile (initializing MongoDB Mobile)
         mobileClient = client.getServiceClient(LocalMongoDbService.clientFactory);
