@@ -66,6 +66,26 @@ public class MongoJDBCDriver {
         // Database will always be my_db
         myDB = mobileClient.getDatabase("my_db");
     }
+    public void insertOneTask(String collectionName, String title) {
+        Document taskOne = new Document("taskName", title);
+        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+        localCollection.insertOne(taskOne);
+        System.out.println("SUCCESS:  " + title);
+    }
+    public void insertOnePostCollection(String collectionName, Post obj) {
+        MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
+        Document a = convertPostToDocument(obj);
+        localCollection.insertOne(a);
+
+    }
+    public Document convertPostToDocument(Post obj) {
+        Document postsOne = new Document("id", obj.getId())
+                .append("title", obj.getTitle())
+                .append("description", obj.getDesc())
+                .append("contributors", obj.getContributors())
+                .append("date", obj.getDate());
+        return postsOne;
+    }
     public void insertPostsCollection(String collectionName) {
         myDB.getCollection(collectionName).drop();
         //If doesn't exist, simply returns false
@@ -77,7 +97,7 @@ public class MongoJDBCDriver {
 
         MongoCollection<Document> localCollection = myDB.getCollection(collectionName);
         Document postsOne = new Document("id", 1)
-                .append("title", "Curing Cancer")
+                .append("title", "WAY DIFFERENT NAME")
                 .append("description", "There's a lot of garbage left unattended these days. So I thought we could clean it up")
                 .append("contributors", "Contributors: 4")
                 .append("date", date);

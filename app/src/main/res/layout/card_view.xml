@@ -65,6 +65,7 @@
                 android:textColor="#000"/>
 
             <Button
+                android:id="@+id/btn"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_toRightOf="@+id/textViewContributors"

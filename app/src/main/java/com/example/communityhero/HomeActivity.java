@@ -141,7 +141,11 @@ public class HomeActivity extends AppCompatActivity {
 
     // To bookmark a post
     public void save(View view) {
+
         Toast.makeText(this, "SAVED", Toast.LENGTH_SHORT).show();
+        /*MongoJDBCDriver mongo = new MongoJDBCDriver();
+        mongo.insertOnePostCollection("savedCollection", );
+        mongo.findCollectionPost("savedCollection");*/
     }
 
     // To create a post

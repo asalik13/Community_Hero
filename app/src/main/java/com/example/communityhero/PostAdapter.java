@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.TextView;
-import android.widget.Filterable;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,6 +61,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
         public PostViewHolder(@NonNull final View itemView) {
             super(itemView);
+            MongoJDBCDriver mongo = new MongoJDBCDriver();
 
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewDesc = itemView.findViewById(R.id.textViewShortDesc);
@@ -76,7 +77,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
                     builder.setTitle("DO YOU WANNA JOIN?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Log.i("info", "yes");
+                            String title = textViewTitle.getText().toString();
+                            System.out.println("TITLE: " + title);
+                            mongo.insertOneTask("taskCollection", title);
                         }
                     });
                     builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
