@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -35,8 +39,14 @@ dependencies {
 
     implementation 'com.google.maps.android:android-maps-utils:0.5'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
-
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation 'org.mongodb:stitch-android-sdk:4.1.0'
+
+    //implementation 'org.mongodb:mongodb-driver-sync:3.11.1'
+    //compile 'org.mongodb:mongodb-driver:3.3.0'
+    compile group: 'org.mongodb', name: 'bson', version: '2.3'
+
 
 }
 
