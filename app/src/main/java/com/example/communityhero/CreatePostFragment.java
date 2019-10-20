@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class CreatePostFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_createpost, container, false);
+
         title = (EditText) view.getRootView().findViewById(R.id.title);
         desc = (EditText) view.getRootView().findViewById(R.id.desc);
 
@@ -37,9 +39,10 @@ public class CreatePostFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Double lat = bundle.getDouble("lat", 0);
-                Double lng = bundle.getDouble("lng", 0);
+//
+//                Bundle bundle = getArguments();
+//                Double lat = bundle.getDouble("lat", 0);
+//                Double lng = bundle.getDouble("lng", 0);
 
                 String pattern = "dd MMMM yyyy";
                 SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern, new Locale("us", "US"));
@@ -53,10 +56,15 @@ public class CreatePostFragment extends Fragment {
                         desc.getText().toString(),
                         "Contributors: 2",
                         date,
-                        lat,
-                        lng
+                        70.0,
+                        80.0
                 );
-                mongo.insertOnePostCollection("postCollection", myPost );
+                mongo.insertOnePostCollection("postCollection", myPost);
+
+                Log.i("info", myPost.getTitle() + ", " + myPost.getDesc() + ", " + myPost.getLatitude() + ", " + myPost.getLongitude());
+
+                Intent i = new Intent(getActivity(), HomeActivity.class);
+                startActivity(i);
             }
         });
         return view;

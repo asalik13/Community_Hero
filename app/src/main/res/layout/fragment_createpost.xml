@@ -2,9 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="380dp"
     android:layout_height="330dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="180dp"
-    android:background="@drawable/layout_bg">
+    android:background="@drawable/layout_bg"
+    tools:context=".CreatePostFragment">
 
 
     <EditText

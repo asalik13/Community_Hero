@@ -12,6 +12,8 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 
@@ -129,5 +131,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         bundle.putDouble("lat", startLatLng.latitude);
         bundle.putDouble("lng", startLatLng.longitude);
         fragment.setArguments(bundle);
+        FrameLayout fragmentLayout = new FrameLayout(this);
+        // set the layout params to fill the activity
+        fragmentLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        // set an id to the layout
+        fragmentLayout.setId(R.id.fragment_container); // some positive integer
+        // set the layout as Activity content
+        setContentView(fragmentLayout);
+        // Finally , add the fragment
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container,new CreatePostFragment()).commit();
     }
 }
